@@ -104,12 +104,19 @@ app.directive("touchact",function(){
         link: function (scope,element,attrs) {
             if(!('add' in document.body.classList)){return;}
             var classname=attrs['touchact'] || 'navfocus';
-            element.bind("touchstart",function(){
+            var tStart="touchstart";
+            var tEnd="touchend";
+            if (window.navigator.msPointerEnabled) {
+                tStart="MSPointerDown";
+                tEnd="MSPointerUp";
+            }
+
+            element.bind(tStart,function(){
                 var cl=this.classList;
                 cl.add(classname);
                 setTimeout(function(){cl.remove(classname)},300);
             });
-            element.bind("touchend",function(){
+            element.bind(tEnd,function(){
                 this.classList.remove(classname);
             })
         }
