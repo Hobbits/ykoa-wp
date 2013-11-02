@@ -138,10 +138,10 @@
     -webkit-tap-highlight-color: rgba(255, 252, 186, 0.48);
 }
 
-.footerInner_WP{display: none;height: 100%;}
+.footerInner_WP{display: none;height: 100%;text-align: center;}
 .isWP .footerInner{display: none;}
 .isWP .footerInner_WP{display: block;}
-.isWP .footerTab{width: 50%;display: inline-block;}
+
 
 /*footer结束*/
 
