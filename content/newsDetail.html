@@ -1,0 +1,49 @@
+<style>
+    header .headericon,.newsfooter{color: #16a085;}
+    header .topcoat-navigation-bar__title,header .topcoat-navigation-bar__item{color: #16a085;}
+
+    #newsDetailContent img{max-width: 100%;}
+
+    .atittle{font-size: 2em;text-align: center;}
+    .subtittle{text-align: center;font-size: 0.8em;color: #16a085;
+        padding: 0.8em 0;
+    }
+
+    #newsDetailContent .content{
+        bottom:2.5rem;background-color: #FFF;
+        padding-left:0.5rem;padding-right: 0.5rem;
+    }
+    .newsfooter{
+        position: absolute;height: 2.5rem;
+        width: 100%;
+        bottom: 0;
+        box-shadow: inset 0 1px #b9bcbc, 0 0 #d4d6d6;
+    }
+    .textBody img{max-width: 100%}
+.footerTab{background: none;border: none;padding: 0;margin: 0;display: block;color: inherit;}
+</style>
+
+<section id="newsDetailContent" class="theme1" data-ng-controller="newsDetailCtrl">
+    <article class="content" scrollable>
+    <div class="newsHeader">
+    <h2 class="atittle" ng-bind="detail.title"></h2>
+    <div class="subtittle" ng-if="detail.createtime">
+        <span style="margin-right: 1em">点击次数:{{detail.number}}</span>
+        <span>创建时间<time ng-bind="detail.createtime"></time></span>
+    </div>
+    </div>
+        <div ng-if="detail.picture">
+            <img ng-src="{{detail.picture}}"/>
+        </div>
+    <div class="textBody" ng-bind-html="detail.content">
+    </div>
+    </article>
+    <div class="topcoat-navigation-bar newsfooter borderBox">
+        <div class="footerInner">
+        <button touchact="highLight" ng-if="detail.up_id" data-ani="-iOSlide" nav-to="/newsdetail/{{detail.up_id}}" class="footerTab"><span class="icon-backward"></span></button>
+        <button touchact="highLight" ng-if="detail.url" hm-tap="newBro('{{detail.url}}')" class="footerTab"><span class="icon-share"></span></button>
+        <button touchact="highLight" ng-if="detail.down_id" nav-to="/newsdetail/{{detail.down_id}}" class="footerTab"><span class="icon-forward"></span></button>
+
+        </div>
+    </div>
+</section>

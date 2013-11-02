@@ -1,0 +1,72 @@
+<style>
+    header{
+        box-shadow: none !important;
+        color: #16a085;
+    }
+    .headericon{color: #16a085;}
+    header .topcoat-navigation-bar__title,header .topcoat-navigation-bar__item{color: #16a085;}
+
+    .fixlistItem{padding: 0 0.25rem;}
+    .newsItem a{display: block;}
+    .newsItem time{float: right;margin: 0 0.3em 0 1em;font-style: italic}
+     .loadmore{width: 100%}
+</style>
+
+<section class="theme1" data-ng-controller="newslistCtrl">
+
+    <div class="topcoat-tab-bar full fixnav">
+        <label class="topcoat-tab-bar__item">
+            <input ng-model="catChosen" value="1" type="radio" name="topcoat" checked>
+            <button class="topcoat-tab-bar__button full fixlistItem">公司新闻</button>
+        </label>
+        <label class="topcoat-tab-bar__item">
+            <input ng-model="catChosen" value="2" type="radio" name="topcoat">
+            <button class="topcoat-tab-bar__button full fixlistItem">行业资讯</button>
+        </label>
+
+    </div>
+
+    <div class="content fixnavContent" >
+        <div data-ng-switch="catChosen">
+            <div data-ng-switch-when="1">
+                <div class="topcoat-list">
+                    <div ng-repeat="g in newsList1">
+                        <h3 class="topcoat-list__header" ng-bind="g.monthNote">载入中...</h3>
+                        <ul class="topcoat-list__container">
+                            <li touchact="highLight" ng-repeat="a in g.arr"
+                                nav-to="/newsdetail/{{a.aid}}"
+                                class="topcoat-list__item newsItem">
+                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time>[{{a.createtime}}]</time></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button ng-click="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
+                    <span class="icon-spin3" ng-class="{true:'animate-spin',false:''}[loadmore.isloading]"></span>{{loadmore.standbyText}}
+                </button>
+
+
+            </div>
+
+            <div data-ng-switch-when="2">
+                <div class="topcoat-list">
+                    <div ng-repeat="g in newsList2">
+                        <h3 class="topcoat-list__header" ng-bind="g.monthNote">载入中...</h3>
+                        <ul class="topcoat-list__container">
+                            <li touchact="highLight" ng-repeat="a in g.arr"
+                                nav-to="/newsdetail/{{a.aid}}"
+                                class="topcoat-list__item newsItem">
+                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time>[{{a.createtime}}]</time></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button ng-click="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
+                    <span class="icon-spin3" ng-class="{true:'animate-spin',false:''}[loadmore.isloading]"></span>{{loadmore.standbyText}}
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+

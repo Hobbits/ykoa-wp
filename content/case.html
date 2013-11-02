@@ -1,0 +1,129 @@
+<style>
+    header {box-shadow: none ! important;}
+    header .topcoat-navigation-bar__title,.headericon {color: #9B59B6;}
+    .case-button {
+        border:none;
+        padding: 0;
+        height: 3rem;
+        line-height: 3rem;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #454545;
+        /*text-shadow: 0 1px #fff;*/
+        background-color: #e5e9e8;
+        box-shadow: inset 0 1px #fff;
+    }
+
+    .caret1 {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-width:6px 4px 0 4px;
+        border-color: #9B59B6 transparent #9B59B6 transparent;
+        border-style: solid solid none solid;
+        -webkit-backface-visibility: hidden;
+        vertical-align: middle;
+    }
+    .caret2 {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-width:0 6px 10px 6px;
+        border-color: #D195E5 transparent #D195E5 transparent;
+        border-style: none solid solid solid;
+        -webkit-backface-visibility: hidden;
+        vertical-align: bottom;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        left:25%;
+        top: 1.7rem;
+        z-index: 2;
+        width: 50%;
+        text-align: center;
+    }
+    .dropdown-menu ul {
+        border-radius: 0.3em;
+        background: #D195E5;
+    }
+    .dropdown-menu li {
+        color:#FFF;
+        height: 2.5em;
+        line-height: 2.5em;
+        text-align: center;
+        border-bottom:1px solid #DBBFE3;
+    }
+
+    .caseContent {padding: 3rem 0.5rem;}
+    .case-info {}
+    .case-info dl  {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        display: inline-block;
+        width: 48%;
+        margin: 0.5em 0 0 2%;
+        vertical-align: top;
+
+    }
+    .casepicLink {
+        height: 8.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        -webkit-background-size: cover;
+        webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+        -webkit-tap-highlight-color: rgba(182, 111, 172, 0.5);
+    }
+    @media (min-width:480px) and (max-width: 767px) {
+        .casepicLink {
+            height: 12em;
+        }
+    }
+    @media (min-width:768px) {
+        .casepicLink {
+            height: 15em;
+        }
+        .case-info dl  {
+            width: 31%;
+            margin: 0.5em 0 0 2%;
+        }
+    }
+    .case-info dl dd {
+        text-align: center;
+        margin-top: 0.5em;
+    }
+
+    .noborder {border-bottom:none !important; }
+</style>
+<section id="case" class="theme3" data-ng-controller="caseCtrl" >
+
+    <div class="topcoat-tab-bar full fixnav">
+        <div touchact="highLight" hm-tap="toggleDropdownMenu()" class="case-button full fixlistItem">
+            <span data-ng-bind="caseCategoryName"></span>
+            <span class="caret1"></span>
+        </div>
+
+        <div class="dropdown-menu">
+            <span class="caret2"></span>
+            <ul id="caseCategory">
+                <li hm-tap="changeCaseCategory(caseCategory)" data-ng-repeat="caseCategory in caseCategories" ng-class="{noborder: $last}" data-ng-cloak>
+                    {{caseCategory.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contentNoWebkitTouch fixnavContent caseContent" >
+        <div class="case-info">
+            <dl touchact="highLight" data-ng-repeat="case in cases">
+                <dt class="casepicLink" nav-to="/casepic/{{case.id}}" style="background-image:url({{IMAGE_ROOT+case.app_img_thumb}})"></dt>
+                <dd data-ng-cloak>{{case.title}}</dd>
+            </dl>
+        </div>
+    </div>
+</section>
+<ng-include src="'content/noticeInfo.html'"></ng-include>
+

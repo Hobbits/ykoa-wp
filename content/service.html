@@ -1,0 +1,81 @@
+<style>
+    header .topcoat-navigation-bar__title,.headericon {color: #2ECC71;}
+    #serviceContent {padding:0;}
+    .servicelist {border-top:none;}
+    .servicelist li {
+        padding: 0.5em;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-align:center;
+        box-align:center;
+        -webkit-box-orient: horizontal;
+        box-orient: horizontal;
+    }
+    .servicelist .servicePic {
+
+    }
+    .servicelist .servicePic img{
+        max-width: 4em;
+        max-height: 4em;
+    }
+    .servicelist h3 {
+        padding:0 0 0 0.5em;
+        -webkit-box-flex: 1;
+        box-flex: 1;
+    }
+
+    .arrow {
+        display: -webkit-box;
+        display: box;
+        -webkit-box-align:center;
+        box-align:center;
+        -webkit-box-orient: horizontal;
+        box-orient: horizontal;
+    }
+    .arrow1 {
+        border-width: 15px;
+        border-color: transparent transparent transparent #DFE2E2;
+        position: relative;
+        left:26px;
+        z-index:9;
+    }
+    .arrow2 {
+        border-width: 15px;
+        border-color: transparent transparent transparent #2ECC71;
+    }
+    .arrow1, .arrow2 {
+        border-style: dashed dashed dashed solid;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+
+
+</style>
+<section id="service" class="theme2" data-ng-controller="serviceCtrl">
+    <div class="content fixnavContent" id="serviceContent">
+
+        <div class="topcoat-list">
+            <!--<h3 class="topcoat-list__header">Service</h3>-->
+
+            <ul class="topcoat-list__container servicelist" data-ng-cloak>
+                <li data-ng-repeat="service in services" class="topcoat-list__item" touchact="bg-gray" nav-to="/servicedetail/{{service.aid}}">
+                    <div class="servicePic">
+                        <img ng-src="{{IMAGE_ROOT+service.picture}}" />
+                    </div>
+                    <h3>{{service.title}}</h3>
+                    <div class="arrow">
+                        <div class="arrow1"></div>
+                        <div class="arrow2"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+<ng-include src="'content/noticeInfo.html'"></ng-include>
+

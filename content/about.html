@@ -1,0 +1,104 @@
+<style>
+    header .topcoat-navigation-bar__title,.headericon{color: #D35400;}
+    .about-frame {
+        position:relative;
+    }
+    .about-frame .aboutContent {
+        padding:0 1.2em;
+    }
+    .contactus {
+        background: #FFF;
+        position: relative;
+        border-radius: 0.3em;
+        box-shadow: 0px 0px 2px #999;
+    }
+    .contactus dl {
+        padding: 0.5em 0 1em 0;
+        border-bottom: 1px dashed #E6E6E6;
+    }
+    .contactus dl dt {
+        color:#FFF;
+        font-weight: bold;
+        /*padding:0.2em 0 0 0;*/
+    }
+    .contactus dl dd {
+        padding:0.5em 0 0 1em;
+    }
+    .contactus dl dt.company-name {
+        width:15em;
+        height:2.5em;
+        text-align: center;
+        text-indent: -0.8em;
+        line-height: 40px;
+        margin-left: -0.3em;
+        background:url(images/companyname_bg.png) repeat;
+    }
+    .contactus dd.company-logo img {max-width: 9em;}
+    .dtbg {
+        width: 5.5em;
+        height:1.5em;
+        line-height: 1.5em;
+        margin-left: -0.6em;
+        text-align: center;
+        border:3px solid #FFF;
+        box-shadow: 0px 0px 3px #999;
+        background:url(images/dt_bg.png) repeat;
+    }
+    header{
+        box-shadow: none !important;
+    }
+
+</style>
+<section class="theme5" data-ng-controller="aboutCtrl" id="about">
+
+<div class="topcoat-tab-bar full fixnav" ng-init="aboutIndex='1'">
+    <label class="topcoat-tab-bar__item">
+        <input type="radio" data-ng-model="aboutIndex" value="1" name="topcoat" checked="checked">
+        <button class="topcoat-tab-bar__button full fixlistItem">公司简介</button>
+    </label>
+    <label class="topcoat-tab-bar__item">
+        <input type="radio" data-ng-model="aboutIndex" value="2" name="topcoat">
+        <button class="topcoat-tab-bar__button full fixlistItem">联系我们</button>
+    </label>
+</div>
+
+<div class="content fixnavContent" >
+    <div data-ng-switch="aboutIndex" class="about-frame">
+        <div class="aboutContent" data-ng-switch-when="1">
+           <div data-ng-bind-html="company.company_info" style="line-height: 1.5;"></div>
+            <!--{{company.company_info}}-->
+        </div>
+
+        <div class="aboutContent" data-ng-switch-when="2">
+            <div class="contactus">
+                <dl>
+                    <dt class="company-name">苏州云库信息科技有限公司</dt>
+                    <dd class="company-logo"><img ng-src="{{IMAGE_ROOT+company.company_logo}}" /></dd>
+                </dl>
+
+                <dl>
+                    <dt class="dtbg">联系电话</dt>
+                    <dd data-ng-repeat="tel in company.company_tel">{{tel}}</dd>
+                </dl>
+
+                <dl>
+                    <dt class="dtbg">联系客服</dt>
+                    <dd data-ng-repeat="qq in company.company_qq">{{qq}}</dd>
+                </dl>
+
+                <dl>
+                    <dt class="dtbg">联系邮箱</dt>
+                    <dd data-ng-repeat="email in company.company_email">{{email}}</dd>
+                </dl>
+
+                <dl style="border:none;">
+                    <dt class="dtbg">网址</dt>
+                    <dd data-ng-repeat="net in company.company_net">{{net}}</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+<ng-include src="'content/noticeInfo.html'"></ng-include>

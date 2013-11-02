@@ -1,0 +1,53 @@
+<style>
+    header .topcoat-navigation-bar__title,.headericon {color: #9B59B6;}
+
+</style>
+<div ng-controller="casePicCtrl" id="morePic" class="content">
+    <link rel="stylesheet" href="css/casePic.css">
+    <script type="text/javascript" src="libs/cardview.js"></script>
+    <!--<div id="wrapper" ng-if="newPicArr">-->
+
+    <div id="wrapper">
+        <ul id="deck">
+            <li class="card" ng-repeat="picture in pictures track by $id($index)">
+                <div>
+                    <img ng-src="{{picture}}" />
+                </div>
+            </li>
+        </ul>
+        <h3 class="caseDescription" data-ng-bind-html="caseDescription">{{caseDescription}}</h3>
+        <!--<h3 class="caseDescription">{{caseDescription}}</h3>-->
+    </div>
+</div>
+        <script>
+            (function(){
+                var shown=false;
+                var ele=$('.attentionBtn')[0];
+                var icon=$('.attentionBtn .headericon')[0];
+                var target=$('.caseDescription')[0];
+                icon.classList.remove('icon-attention-alt');
+
+                var eventStr= isTouchDevice? 'touchend':'click';
+
+                var switcher=function(){
+                    var cl=target.classList;
+                    if(shown){
+                        shown=false;
+                        cl.remove('show');
+                        icon.classList.remove('icon-attention-alt');
+                    }else{
+                        shown=true;
+                        cl.add('show');
+                        icon.classList.add('icon-attention-alt');
+                    }
+                };
+
+                ele.addEventListener(eventStr,switcher);
+
+                $('#morePic').on('die',function(){
+                   ele.removeEventListener(eventStr,switcher);
+                });
+
+            }());
+        </script>
+

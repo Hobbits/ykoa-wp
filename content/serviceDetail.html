@@ -1,0 +1,17 @@
+<style>
+    header .topcoat-navigation-bar__title,.headericon{color: #2ECC71;}
+    .service_det_con {padding:0.5em; line-height: 1.5em;}
+    .service_det_con .service_det_pic {float:left; padding: 0 0.5em 0 0;}
+    .service_det_con .service_det_pic img {max-width: 6em;}
+</style>
+<section class="content theme3" data-ng-controller="serviceDetailCtrl" id="serviceDetail">
+    <div class="service_det_con">
+        <div class="service_det_pic">
+            <img ng-src="{{IMAGE_ROOT+serviceDetail.picture}}" />
+        </div>
+        <p data-ng-bind-html="serviceDetail.content"></p>
+    </div>
+</section>
+<ng-include src="'content/noticeInfo.html'"></ng-include>
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="guoqing2013.yunkooApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <title>云库科技</title>
+
+    <link rel="apple-touch-icon-precomposed" href="icon152x152.png"/>
+    <link rel="icon" type="image/png" href="icon-trans.png"/>
+    <link rel="dns-prefetch" href="//www.szyunkoo.com">
+
+    <script src="libs/jquery.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-route.min.js"></script>
+    <script src="libs/angular/angular-animate.min.js"></script>
+    <script src="libs/angular/angular-resource.min.js"></script>
+    <script src="libs/angular/angular-sanitize.min.js"></script>
+    <script src="libs/angular-hammer/hammer.min.js"></script>
+    <script src="libs/angular-hammer/angular-hammer.js"></script>
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="libs/mobile-nav.css">
+    <link rel="stylesheet" href="libs/topcoat/topcoat-mobile-light.min.css">
+    <link rel="stylesheet" href="css/fixer.css">
+    <link rel="stylesheet" href="css/base.css"/>
+    <script src="libs/mobile-nav.js"></script>
+
+    <script src="js/serverurl.js"></script>
+    <script src="js/config.js"></script>
+
+    <link rel="stylesheet" href="css/webfont/fontello/css/house.css"/>
+    <link rel="stylesheet" href="css/webfont/fontello/css/animation.css"/>
+</head>
+
+<body ng-controller="MainCtrl">
+<div id="leftWrap">
+    <button nav-to="/newslist" ebind="touchend" id="leftBtn_n1" class="leftBtn_newslist leftBtn_newsDetail leftcard cardItem" touchact="opa5">
+        <div class="cover"></div>
+        <div class="carditemInner">
+            <h2 class="left_tt">公司动态</h2>
+            <img class="left_icon" src="images/home/home_1.png"/>
+        </div>
+
+    </button>
+    <button nav-to="/service" ebind="touchend" id="leftBtn_n2" class="leftBtn_n2 leftcard cardItem" touchact="opa5">
+        <div class="cover"></div>
+        <div class="carditemInner">
+            <h2 class="left_tt">服务项目</h2>
+            <img class="left_icon" src="images/home/home_2.png"/>
+        </div>
+
+    </button>
+    <button nav-to="/case" ebind="touchend" id="leftBtn_n3" class="leftBtn_n3 leftcard cardItem" touchact="opa5">
+        <div class="cover"></div>
+        <div class="carditemInner">
+            <h2 class="left_tt">成功案例</h2>
+            <img class="left_icon" src="images/home/home_3.png"/>
+        </div>
+    </button>
+    <button nav-to="/jobs" ebind="touchend" id="leftBtn_n4" class="leftBtn_n4 leftcard cardItem" touchact="opa5">
+        <div class="cover"></div>
+        <div class="carditemInner">
+            <h2 class="left_tt">招贤纳士</h2>
+            <img class="left_icon" src="images/home/home_4.png"/>
+        </div>
+    </button>
+    <button nav-to="/about" ebind="touchend" id="leftBtn_n5" class="leftBtn_n5 leftcard cardItem" touchact="opa5">
+        <div class="cover"></div>
+        <div class="carditemInner">
+            <h2 class="left_tt">关于云库</h2>
+            <img class="left_icon" src="images/home/home_5.png"/>
+        </div>
+    </button>
+</div>
+<div id="rightWrap">
+<header data-ng-controller="headerCtrl" ng-init="title.pageTitle='';title.backTitle=''" class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet v-center" hm-tap="historyBack()">
+            <!--<span class="topcoat-icon home-icon">{{title.backTitle}}</span>-->
+            <span class="headericon icon-left-bold"></span>
+        </a>
+    </div>
+    <div nav-to="/" ani="-fade" class="topcoat-navigation-bar__item center half">
+    <h1 class="topcoat-navigation-bar__title" data-ng-cloak>
+        <span ng-if="loading"><span class="icon-spin1 animate-spin"></span></span>
+        {{title.pageTitle}}
+    </h1>
+    </div>
+    <div class="attentionBtn topcoat-navigation-bar__item right quarter">
+        <a class="topcoat-icon-button--quiet v-center">
+            <span class="headericon icon-attention"></span>
+        </a>
+    </div>
+</header>
+
+
+<style id="homeStyle"></style>
+<mobile-view>
+
+</mobile-view>
+
+</div>
+</body>
+
+<script src="js/services/ngStorage.min.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/route.js"></script>
+<script src="js/services/services.js"></script>
+
+
+<script src="js/controllers/headerCtrl.js"></script>
+
+<script defer src="js/controllers/newslistCtrl.js"></script>
+<script defer src="js/controllers/newsDetailCtrl.js"></script>
+<script defer src="js/controllers/serviceCtrl.js"></script>
+<script defer src="js/controllers/serviceDetailCtrl.js"></script>
+<script defer src="js/controllers/caseCtrl.js"></script>
+<script defer src="js/controllers/casePicCtrl.js"></script>
+<script defer src="js/controllers/aboutCtrl.js"></script>
+<script defer src="js/controllers/jobsCtrl.js"></script>
+<script defer src="js/other.js"></script>
+
+<script type="text/javascript" src="phonegap.js"></script>
+</html>

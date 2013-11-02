@@ -1,0 +1,51 @@
+<style>
+    header{z-index: 0;}
+    #leftWrap{display: none;}
+    #rightWrap{left: 0;right: 0;}
+</style>
+<section id="homeContent" class="content">
+
+    <div id="cardWrap">
+        <button nav-to="/newslist" ebind="touchend" id="c1" class="cardItem" touchact="opa5">
+            <div class="carditemInner titleLeft">
+                <h2 class="cardTitle">公司动态</h2>
+                <img class="cardIcon" src="images/home/home_1.png"/>
+
+            </div>
+
+        </button>
+        <button nav-to="/service" ebind="touchend" id="c2" class="cardItem" touchact="opa5">
+            <div class="carditemInner titleLeft">
+                <h2 class="cardTitle">服务项目</h2>
+                <img class="cardIcon" src="images/home/home_2.png"/>
+            </div>
+
+        </button>
+        <button nav-to="/case" ebind="touchend" id="c3" class="cardItem" touchact="opa5">
+            <div class="carditemInner titleRight">
+                <h2 class="cardTitle">成功案例</h2>
+                <img class="cardIcon" src="images/home/home_3.png"/>
+            </div>
+        </button>
+        <button nav-to="/jobs" ebind="touchend" id="c4" class="cardItem" touchact="opa5">
+            <div class="carditemInner titleRight">
+                <h2 class="cardTitle">招贤纳士</h2>
+                <img class="cardIcon" src="images/home/home_4.png"/>
+            </div>
+        </button>
+        <button nav-to="/about" ebind="touchend" id="c5" class="cardItem" touchact="opa5">
+            <div class="carditemInner titleRight">
+                <h2 class="cardTitle">关于我们</h2>
+                <img class="cardIcon" src="images/home/home_5.png"/>
+            </div>
+        </button>
+    </div>
+</section>
+
+<script>
+//    if(isTouchDevice){
+//        $('#homeContent button').on('click',function(e){
+//            e.preventDefault();
+//        });
+//    }
+</script>
