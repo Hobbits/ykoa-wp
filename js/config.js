@@ -18,3 +18,9 @@ var isAndroid = (function(){
 var isTouchDevice=(function() {
     return 'ontouchstart' in window
 })();
+
+var isWP=false;
+if(window.navigator.msPointerEnabled){
+    document.documentElement.classList.add('isWP');
+    window.isWP=true;
+}

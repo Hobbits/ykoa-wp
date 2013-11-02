@@ -16,9 +16,9 @@
 /*}*/
 
 
-@media screen and (min-width:0\0) {
-    .headerbackBtn a{display: none;}
-}
+
+.isWP .headerbackBtn a{display: none;}
+
 
 
 .v-center{
@@ -137,6 +137,12 @@
     vertical-align: middle;
     -webkit-tap-highlight-color: rgba(255, 252, 186, 0.48);
 }
+
+.footerInner_WP{display: none;height: 100%;}
+.isWP .footerInner{display: none;}
+.isWP .footerInner_WP{display: block;}
+.isWP .footerTab{width: 50%;display: inline-block;}
+
 /*footer结束*/
 
 
