@@ -6,7 +6,7 @@ app.controller("newslistCtrl",['$scope','newsList','$sessionStorage',function($s
         },
         curPage:[null,0,0],
         isloading:false,
-        limit:5,/*每页多少*/
+        limit:10,/*每页多少*/
         standbyText:'点击载入更多'
     }
 
@@ -56,9 +56,14 @@ app.controller("newslistCtrl",['$scope','newsList','$sessionStorage',function($s
 
     $scope.$watch('catChosen', function(v) {
 
-        $scope.loadmore.isloading=true;
-        $scope.loadmore.standbyText="载入中";
-        queryAct(v,$scope.loadmore.curPage[v]+1);
+        var getload=function(cat,page){
+            $scope.loadmore.isloading=true;
+            $scope.loadmore.standbyText="载入中";
+            queryAct(cat,page);
+        };
+        if($scope.loadmore.curPage[v]==0){
+            getload(v,$scope.loadmore.curPage[v]+1);
+        }
         $sessionStorage.newslistCat=v;
     });
 
