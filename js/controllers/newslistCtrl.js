@@ -37,6 +37,7 @@ app.controller("newslistCtrl",['$scope','newsList','$sessionStorage',function($s
                     $scope.loadmore.isloading=false;
                     $scope.loadmore.standbyText="点击载入更多";
                 }else{
+                    $scope.loadmore.curPage[v]=pageNum;
                     $scope.loadmore.isloading=false;
                     $scope.loadmore.standbyText="没有更多了";
                 }
