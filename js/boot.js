@@ -1,5 +1,5 @@
 /*启动angular*/
-var app=angular.module('guoqing2013.yunkooApp', ['ngRoute','ngAnimate','ngResource','ngStorage','ngSanitize','ajoslin.mobile-navigate','hmTouchEvents']);
+var app=angular.module('guoqing2013.yunkooApp', ['ngResource','ngStorage','ngSanitize','ajoslin.mobile-navigate','hmTouchEvents']);
 
 
 app.config(['$httpProvider',function($httpProvider) {

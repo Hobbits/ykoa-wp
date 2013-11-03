@@ -5,19 +5,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="msapplication-tap-highlight" content="no" />
-
+    <base href="x-wmapp0:www/" />
     <title>云库科技</title>
 
-    <link rel="apple-touch-icon-precomposed" href="icon152x152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="icon144x144.png"/>
     <link rel="icon" type="image/png" href="icon-trans.png"/>
-    <link rel="dns-prefetch" href="//www.szyunkoo.com">
-
+    <link rel="dns-prefetch" href="http://www.szyunkoo.com"/>
+    <script type="text/javascript" src="phonegap.js"></script>
     <script src="libs/jquery.js"></script>
-    <script src="libs/angular/angular.min.js"></script>
-    <script src="libs/angular/angular-route.min.js"></script>
-    <script src="libs/angular/angular-animate.min.js"></script>
-    <script src="libs/angular/angular-resource.min.js"></script>
-    <script src="libs/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript">
+        jQuery.isUnsafe = true;
+    </script>
+    <script src="libs/angular/1.15/angular.1.15.js"></script>
+    <script src="libs/angular/1.15/angular-resource.min.js"></script>
+    <script src="libs/angular/1.15/angular-sanitize.min.js"></script>
     <script src="libs/angular-hammer/hammer.min.js"></script>
     <script src="libs/angular-hammer/angular-hammer.js"></script>
 
@@ -124,5 +125,5 @@
 <script defer src="js/controllers/jobsCtrl.js"></script>
 <script defer src="js/other.js"></script>
 
-<script type="text/javascript" src="phonegap.js"></script>
+
 </html>
