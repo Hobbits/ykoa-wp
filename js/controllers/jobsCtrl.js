@@ -1,4 +1,4 @@
-app.controller("jobsCtrl",['$scope','AJAX','$sce',function($scope,AJAX,$sce){
+app.controller("jobsCtrl",['$scope','AJAX',function($scope,AJAX){
     var ajax1 = AJAX({
         url: APP_ACTION['JOB'],
         cache: true,
@@ -7,7 +7,7 @@ app.controller("jobsCtrl",['$scope','AJAX','$sce',function($scope,AJAX,$sce){
         },
         sCall: function (data) {
             try{
-                $scope.html=$sce.trustAsHtml(data);
+                $scope.html=data;
             }catch(e){
                 $scope.html=":( 数据传输出错了";
             }

@@ -10,9 +10,10 @@
         box-align:center;
         -webkit-box-orient: horizontal;
         box-orient: horizontal;
+        position: relative;
     }
     .servicelist .servicePic {
-
+        display: inline-block;
     }
     .servicelist .servicePic img{
         max-width: 4em;
@@ -23,6 +24,11 @@
         -webkit-box-flex: 1;
         box-flex: 1;
     }
+    .isWP .servicelist h3{
+        line-height: 4em;
+        vertical-align: top;
+        display: inline-block;
+    }
 
     .arrow {
         display: -webkit-box;
@@ -32,6 +38,10 @@
         -webkit-box-orient: horizontal;
         box-orient: horizontal;
     }
+    .isWP .arrow{
+        float: right;
+        margin-top: 0.95em;
+    }
     .arrow1 {
         border-width: 15px;
         border-color: transparent transparent transparent #DFE2E2;
@@ -39,6 +49,7 @@
         left:26px;
         z-index:9;
     }
+    .isWP .arrow1{display: none;}
     .arrow2 {
         border-width: 15px;
         border-color: transparent transparent transparent #2ECC71;
