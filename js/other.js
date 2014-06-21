@@ -55,7 +55,32 @@ app.run(['$route', '$http', '$templateCache',function($route, $http, $templateCa
     });
 }]);
 
-/*手动关闭启动画面*/
+
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+
+
 document.addEventListener("deviceready", function(){
+    /*手动关闭启动画面*/
     setTimeout(function(){navigator.splashscreen.hide();},500);
+
+    setTimeout(function(){
+
+        loadjscssfile("css/webfont/fontello/css/house.css", "css");
+        loadjscssfile("css/webfont/fontello/css/animation.css", "css");
+    },3000);
+
 }, false);
